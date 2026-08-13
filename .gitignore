@@ -3,6 +3,11 @@
 *.local
 *.log*
 
+# Agent local overrides
+CLAUDE.local.md
+AGENTS.local.md
+.agents/settings.local.json
+
 # Dist
 node_modules
 dist/
