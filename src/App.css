@@ -1,0 +1,35 @@
+html,
+body {
+  margin: 0;
+  background: #111;
+}
+
+body {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  color: #f0f0f0;
+}
+
+.content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0 1.5rem;
+}
+
+.content h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+}
