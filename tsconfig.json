@@ -27,5 +27,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["src", "eslint.config.ts"]
+  "include": ["src", "eslint.config.ts"],
+  "exclude": ["src/**/*.test.ts"]
 }

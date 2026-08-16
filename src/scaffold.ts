@@ -11,6 +11,7 @@ export interface ScaffoldOptions {
   git: boolean;
   install: boolean;
   name: string;
+  templateDir?: string;
   title: string;
 }
 
@@ -33,8 +34,19 @@ export async function isEffectivelyEmpty(dir: string): Promise<boolean> {
   return entries.every((name) => name === '.git' || name === '.DS_Store');
 }
 
+/** Ignore template-local `node_modules` / `dist` only, not those names in the install path. */
+export function isTemplateCopySource(source: string, templateDir: string): boolean {
+  const rel = path.relative(templateDir, source);
+  if (rel === '') {
+    return true;
+  }
+
+  const parts = rel.split(path.sep);
+  return !parts.includes('node_modules') && !parts.includes('dist');
+}
+
 export async function scaffold(options: ScaffoldOptions, hooks: ScaffoldHooks): Promise<void> {
-  const templateDir = path.join(import.meta.dirname, '..', 'template');
+  const templateDir = options.templateDir ?? path.join(import.meta.dirname, '..', 'template');
   if (!existsSync(templateDir)) {
     throw new Error(`Template directory not found: ${templateDir}`);
   }
@@ -46,10 +58,7 @@ export async function scaffold(options: ScaffoldOptions, hooks: ScaffoldHooks): 
 
   await cp(templateDir, options.dest, {
     dereference: false,
-    filter: (source) => {
-      const parts = source.split(path.sep);
-      return !parts.includes('node_modules') && !parts.includes('dist');
-    },
+    filter: (source) => isTemplateCopySource(source, templateDir),
     recursive: true,
   });
 

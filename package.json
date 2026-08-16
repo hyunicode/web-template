@@ -1,6 +1,6 @@
 {
   "name": "@hyunicode/create-web-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create an Rsbuild + React + TypeScript app from this template",
   "type": "module",
   "bin": {
@@ -22,6 +22,7 @@
     "lint": "eslint . && stylelint \"template/**/*.css\"",
     "preview": "bun run --cwd template preview",
     "prepare": "bunx husky",
+    "test": "bun test",
     "typecheck": "tsc --noEmit && tsc --noEmit -p template"
   },
   "commitlint": {

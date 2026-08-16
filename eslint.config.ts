@@ -102,6 +102,13 @@ export default defineConfig(
     },
   },
   {
+    files: ['**/*.test.ts'],
+    extends: [tseslint.configs.disableTypeChecked],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
+  {
     files: ['*.config.{js,ts}', 'eslint.config.ts', 'template/eslint.config.ts'],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
