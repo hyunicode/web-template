@@ -2,7 +2,7 @@
 
 ## Project
 
-`create-web-template` — a Bun scaffolder that copies `template/` into a new Rsbuild + React 19 + TypeScript app. Package manager is **bun** (`>=1.3.0` in `package.json` `engines`). Do not use npm, yarn, or pnpm.
+`@hyunicode/create-web-template` — a Bun scaffolder that copies `template/` into a new Rsbuild + React 19 + TypeScript app. Package manager is **bun** (`>=1.3.0` in `package.json` `engines`). Do not use npm, yarn, or pnpm.
 
 Shared agent config lives in `.agents/`. `.claude`, `.codex`, and `.cursor` are symlinks to that folder — edit `.agents/` only. The same layout is copied into generated apps from `template/.agents/`.
 

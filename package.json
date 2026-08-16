@@ -1,5 +1,5 @@
 {
-  "name": "create-web-template",
+  "name": "@hyunicode/create-web-template",
   "version": "1.0.0",
   "description": "Create an Rsbuild + React + TypeScript app from this template",
   "type": "module",
@@ -21,13 +21,17 @@
     "format": "prettier --write .",
     "lint": "eslint . && stylelint \"template/**/*.css\"",
     "preview": "bun run --cwd template preview",
-    "prepare": "husky",
+    "prepare": "bunx husky",
     "typecheck": "tsc --noEmit && tsc --noEmit -p template"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",

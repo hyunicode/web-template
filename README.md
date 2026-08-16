@@ -1,9 +1,9 @@
-# create-web-template
+# @hyunicode/create-web-template
 
 Create an Rsbuild + React 19 + TypeScript app with the lint, format, git hook, and CI setup from this repo.
 
 ```bash
-bun create web-template my-app
+bunx @hyunicode/create-web-template my-app
 ```
 
 Until the package is on npm, run the CLI from this repo or GitHub:
@@ -26,9 +26,9 @@ The generated app includes:
 The CLI asks for a package name and app title (or take `--name` / `--title` / `--yes`), copies `template/`, rewrites those fields, then runs `bun install` and `git init`.
 
 ```bash
-bun create web-template my-app --yes
-bun create web-template my-app --name @acme/web --title "Acme Web" --yes
-bun create web-template . --overwrite --no-git
+bunx @hyunicode/create-web-template my-app --yes
+bunx @hyunicode/create-web-template my-app --name @acme/web --title "Acme Web" --yes
+bunx @hyunicode/create-web-template . --overwrite --no-git
 ```
 
 ## Iterate on the template

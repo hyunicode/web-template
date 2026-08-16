@@ -10,11 +10,11 @@ import { isPackageName, packageNameFromPath, titleFromName } from './project-nam
 import { isEffectivelyEmpty, scaffold } from './scaffold';
 
 const HELP = `
-${pc.bold('create-web-template')} — Rsbuild + React + TypeScript
+${pc.bold('@hyunicode/create-web-template')} — Rsbuild + React + TypeScript
 
 ${pc.dim('Usage')}
-  bun create web-template [dir]
-  bunx create-web-template [dir]
+  bunx @hyunicode/create-web-template [dir]
+  bun create @hyunicode/web-template [dir]
   bun src/index.ts [dir]
 
 ${pc.dim('Options')}
@@ -47,7 +47,7 @@ async function main(): Promise<void> {
   }
 
   const interactive = !values.yes && process.stdin.isTTY;
-  p.intro(pc.bgCyan(pc.black(' create-web-template ')));
+  p.intro(pc.bgCyan(pc.black(' @hyunicode/create-web-template ')));
 
   let destInput = positionals[0];
   if (destInput == null) {
