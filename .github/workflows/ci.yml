@@ -23,8 +23,11 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install dependencies
+      - name: Install CLI dependencies
         run: bun install --frozen-lockfile
+
+      - name: Install template dependencies
+        run: bun install --frozen-lockfile --cwd template
 
       - name: Lint
         run: bun run lint
@@ -35,5 +38,17 @@ jobs:
       - name: Typecheck
         run: bun run typecheck
 
-      - name: Build
-        run: bun run build
+      - name: Create app
+        run: bun src/index.ts "$RUNNER_TEMP/e2e-app" --yes --no-git --name e2e-app --title "E2E App"
+
+      - name: Lint created app
+        run: bun run --cwd "$RUNNER_TEMP/e2e-app" lint
+
+      - name: Format check created app
+        run: bun run --cwd "$RUNNER_TEMP/e2e-app" check
+
+      - name: Typecheck created app
+        run: bun run --cwd "$RUNNER_TEMP/e2e-app" typecheck
+
+      - name: Build created app
+        run: bun run --cwd "$RUNNER_TEMP/e2e-app" build

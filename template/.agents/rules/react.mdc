@@ -1,6 +1,6 @@
 ---
 description: React component conventions
-globs: "{src,template/src}/**/*.{tsx,jsx}"
+globs: "src/**/*.{tsx,jsx}"
 alwaysApply: false
 ---
 

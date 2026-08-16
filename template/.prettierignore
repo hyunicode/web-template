@@ -3,10 +3,7 @@ package-lock.json
 pnpm-lock.yaml
 yarn.lock
 bun.lock
-template/bun.lock
 
 # Dist
 dist
 node_modules
-template/dist
-template/node_modules

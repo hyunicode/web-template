@@ -10,13 +10,18 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig(
-  { ignores: ['dist/**', 'node_modules/**', 'template/dist/**', 'template/node_modules/**'] },
+  { ignores: ['dist/**', 'node_modules/**'] },
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     extends: [
       js.configs.recommended,
       tseslint.configs.strictTypeChecked,
       tseslint.configs.stylisticTypeChecked,
+      react.configs.flat.recommended ?? {},
+      react.configs.flat['jsx-runtime'] ?? {},
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.recommended(),
+      jsxA11y.flatConfigs.recommended,
       perfectionist.configs['recommended-natural'],
       eslintConfigPrettier,
     ],
@@ -28,6 +33,9 @@ export default defineConfig(
     },
     linterOptions: {
       reportUnusedDisableDirectives: 'error',
+    },
+    settings: {
+      react: { version: 'detect' },
     },
     rules: {
       curly: ['error', 'all'],
@@ -77,32 +85,13 @@ export default defineConfig(
     },
   },
   {
-    files: ['src/**/*.ts'],
-    languageOptions: {
-      globals: globals.node,
-    },
-    rules: {
-      'no-console': 'off',
-    },
-  },
-  {
-    files: ['template/**/*.{js,jsx,ts,tsx}'],
-    extends: [
-      react.configs.flat.recommended ?? {},
-      react.configs.flat['jsx-runtime'] ?? {},
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.recommended(),
-      jsxA11y.flatConfigs.recommended,
-    ],
+    files: ['src/**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       globals: globals.browser,
     },
-    settings: {
-      react: { version: 'detect' },
-    },
   },
   {
-    files: ['*.config.{js,ts}', 'eslint.config.ts', 'template/eslint.config.ts'],
+    files: ['*.config.{js,ts}', 'eslint.config.ts'],
     extends: [tseslint.configs.disableTypeChecked],
     languageOptions: {
       globals: globals.node,

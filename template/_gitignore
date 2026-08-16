@@ -11,17 +11,14 @@ AGENTS.local.md
 # Dist
 node_modules
 dist/
-template/node_modules
-template/dist/
-*.tgz
 
 # Profile
 .rspack-profile-*/
 
 # IDE
-/.vscode/*
-!/.vscode/extensions.json
-!/.vscode/settings.json
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 .idea
 
 # codegraph

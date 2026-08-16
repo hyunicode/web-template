@@ -1,56 +1,40 @@
 {
-  "name": "create-web-template",
+  "name": "web-template",
   "version": "1.0.0",
-  "description": "Create an Rsbuild + React + TypeScript app from this template",
+  "private": true,
   "type": "module",
-  "bin": {
-    "create-web-template": "./src/index.ts"
-  },
-  "files": [
-    "src",
-    "template"
-  ],
   "engines": {
     "bun": ">=1.3.0"
   },
   "scripts": {
-    "build": "bun run --cwd template build",
+    "build": "rsbuild build",
     "check": "prettier --check .",
-    "create": "bun src/index.ts",
-    "dev": "bun run --cwd template dev",
+    "dev": "rsbuild",
     "format": "prettier --write .",
-    "lint": "eslint . && stylelint \"template/**/*.css\"",
-    "preview": "bun run --cwd template preview",
+    "lint": "eslint . && stylelint \"**/*.css\"",
+    "preview": "rsbuild preview",
     "prepare": "husky",
-    "typecheck": "tsc --noEmit && tsc --noEmit -p template"
+    "typecheck": "tsc --noEmit"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hyunicode/web-template.git"
-  },
-  "keywords": [
-    "bun",
-    "create",
-    "react",
-    "rsbuild",
-    "template",
-    "typescript"
-  ],
   "dependencies": {
-    "@clack/prompts": "^0.11.0",
-    "picocolors": "^1.1.1"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
     "@commitlint/config-conventional": "^21.2.0",
     "@eslint/js": "^9.39.1",
+    "@rsbuild/core": "^2.1.11",
+    "@rsbuild/plugin-react": "^2.1.0",
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",

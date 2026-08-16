@@ -1,4 +1,4 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
-  "ignoreFiles": ["dist/**", "node_modules/**"]
+  "ignoreFiles": ["dist/**", "node_modules/**", "template/dist/**", "template/node_modules/**"]
 }

@@ -1,20 +1,45 @@
-# Web template
+# create-web-template
 
-Rsbuild + React starter with ESLint, Prettier, husky, and lint-staged.
+Create an Rsbuild + React 19 + TypeScript app with the lint, format, git hook, and CI setup from this repo.
+
+```bash
+bun create web-template my-app
+```
+
+Until the package is on npm, run the CLI from this repo or GitHub:
+
+```bash
+bun src/index.ts my-app
+bunx github:hyunicode/web-template my-app
+```
+
+## What you get
+
+The generated app includes:
+
+- Rsbuild + React 19 + TypeScript
+- ESLint, Stylelint, Prettier
+- husky + lint-staged + commitlint
+- GitHub Actions CI
+- Shared agent conventions in `.agents/`
+
+The CLI asks for a package name and app title (or take `--name` / `--title` / `--yes`), copies `template/`, rewrites those fields, then runs `bun install` and `git init`.
+
+```bash
+bun create web-template my-app --yes
+bun create web-template my-app --name @acme/web --title "Acme Web" --yes
+bun create web-template . --overwrite --no-git
+```
+
+## Iterate on the template
+
+This repository is the scaffolder. The app that gets copied lives in `template/`.
 
 ```bash
 bun install
-bun run dev
+bun install --cwd template
+bun run dev          # template app
+bun run create -- my-app --yes
 ```
 
-## Scripts
-
-```bash
-bun run dev       # http://localhost:3000
-bun run build     # output to dist/
-bun run preview   # preview production build
-bun run lint      # ESLint + Stylelint
-bun run format    # Prettier
-bun run check     # Prettier check
-bun run typecheck # tsc --noEmit
-```
+Edit files under `template/`. Generated projects pick up the change the next time you run the CLI.
