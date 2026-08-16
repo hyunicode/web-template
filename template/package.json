@@ -13,7 +13,7 @@
     "format": "prettier --write .",
     "lint": "eslint . && stylelint \"**/*.css\"",
     "preview": "rsbuild preview",
-    "prepare": "husky",
+    "prepare": "bunx husky",
     "typecheck": "tsc --noEmit"
   },
   "commitlint": {
